@@ -1,11 +1,75 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>모의 주식 거래소</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>모의주식 – Passa Exchange (MVP)</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>모의 주식 거래소</h1>
-  <p>여기는 테스트 버전입니다.</p>
+  <header>
+    <h1>모의주식</h1>
+    <nav>
+      <button id="tab-market">시장</button>
+      <button id="tab-portfolio">포트폴리오</button>
+      <a href="admin.html">관리자</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 시장 탭 -->
+    <section id="market" class="tab active">
+      <div class="toolbar">
+        <label>시세 갱신 주기(ms):
+          <input type="number" id="tickMs" value="1500" min="300" step="100" />
+        </label>
+        <button id="toggleSim">시뮬레이션 시작</button>
+        <span id="cbStatus"></span>
+      </div>
+
+      <table id="stocksTable">
+        <thead>
+          <tr>
+            <th>코드</th><th>이름</th><th>가격</th><th>전일대비</th><th>등락%</th><th>매수</th><th>매도</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- 포트폴리오 탭 -->
+    <section id="portfolio" class="tab">
+      <div class="summary">
+        <div>현금: <span id="cash"></span></div>
+        <div>평가액: <span id="equity"></span></div>
+        <div>총자산: <span id="total"></span></div>
+        <div>손익: <span id="pnl"></span></div>
+      </div>
+
+      <h3>보유 종목</h3>
+      <table id="holdingsTable">
+        <thead>
+          <tr>
+            <th>코드</th><th>수량</th><th>평단가</th><th>현재가</th><th>평가손익</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <h3>체결 내역</h3>
+      <table id="fillsTable">
+        <thead>
+          <tr><th>시간</th><th>코드</th><th>수량</th><th>가격</th><th>매수/매도</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <small>© Passa Mock Exchange</small>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>
