@@ -3,10 +3,10 @@ const INITIAL_CASH = 1000000; // 100만
 const STORAGE_KEY = "mockx-state-v1";
 
 const defaultStocks = [
-  { code: "PXA", name: "Passa A", price: 100, prevClose: 100 },
-  { code: "PBK", name: "Bank of Prokoland", price: 250, prevClose: 250 },
-  { code: "RFE", name: "Raffine Electronics", price: 80, prevClose: 80 },
-  { code: "AER", name: "Aetherion Space", price: 320, prevClose: 320 }
+  { code: "BOP", name: "Bank of Prokoland", price: 100, prevClose: 100 },
+  { code: "RLG", name: "라피네-렌츠 그룹", price: 250, prevClose: 250 },
+  { code: "RAV", name: "RAV", price: 80, prevClose: 80 },
+  { code: "GNG", name: "GNG", price: 320, prevClose: 320 }
 ];
 
 let state = loadState() || {
@@ -217,3 +217,4 @@ toggleBtn.onclick = ()=>{
 tickMsInput.onchange = ()=>{ state.sim.tickMs = parseInt(tickMsInput.value,10)||1500; saveState(); };
 
 updateUI();
+
